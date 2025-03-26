@@ -1,26 +1,33 @@
 print('-=-= Exercício 1 (soma.py) =-=-')
 
+def soma(n1, n2):
+    return n1 + n2 
+
 n1 = int(input('Digite o 1º número: '))
 n2 = int(input('Digite o 2º número: '))
-soma = n1 + n2
-print(f'A soma é {soma}')
-
+print(f'A soma é:', soma(n1, n2))
 
 print()
 print('-=-= Exercício 2 (media.py) =-=-')
 
-n1 = int(input('Digite o 1º número: '))
-n2 = int(input('Digite o 2º número: '))
-n3 = int(input('Digite o 3º número: '))
-media = (n1 + n2 + n3) / 3
-print(f'A média é: {media}')
+# Função para calcular a média de 3 notas
+def media(n1, n2, n3):
+    return (n1 + n2 + n3) / 3
+    
+num1 = float(input('Digite o 1º número: '))
+num2 = float(input('Digite o 2º número: '))
+num3 = float(input('Digite o 3º número: '))
 
+print(f'A média é: {media(num1, num2, num3)}')
 
 print()
 print('-=-= Exercício 3 (paridade.py) =-=-')
 
+def e_par(n):
+    return n % 2 == 0
+
 n = int(input('Insira um número: '))
-if n % 2 == 0:
+if e_par(n):
     print('O número é par!')
 else:
     print('O número é ímpar!')
