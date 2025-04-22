@@ -114,7 +114,6 @@ print('-=-= Exercício 12 (primos.py) =-=-')
 
 n = int(input('Digite um número: '))
 soma = 0
-# Elevar um número a meio é o mesmo que tirar a raiz quadrada.
 for i in range(1, n + 1):
     if n % i == 0:
         soma += 1
