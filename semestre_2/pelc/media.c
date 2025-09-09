@@ -25,4 +25,6 @@ int main() {
     } while (num > 0);
     
     printf("A média das %d notas é: %f.", qnt, (soma / qnt));
+
+    return 0;
 }
