@@ -11,10 +11,10 @@ void leia_string(char* prompt, char texto[], int tamanho) {
 
 int main() {
     char nome[34];
-    leia_string("Insira seu nome: ", nome, 33);
+    leia_string("Insira seu nome: ", nome, 34);
 
     char sobrenome[34];
-    leia_string("Insira seu sobrenome: ", sobrenome, 33);
+    leia_string("Insira seu sobrenome: ", sobrenome, 34);
 
     char data_nascimento[12];
     leia_string("Insira sua data de nascimento: ", data_nascimento, 12);
@@ -26,7 +26,7 @@ int main() {
     leia_string("Insira seu email: ", email, 322);
 
     char celular[16];
-    leia_string("Insira seu telefone no formato internacional: ", celular, 15);
+    leia_string("Insira seu telefone no formato internacional: ", celular, 16);
     
     char nome_completo[66];
     strcat(nome_completo, nome);
