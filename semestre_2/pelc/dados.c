@@ -2,11 +2,12 @@
 
 #include <string.h>
 
-void leia_string(char* prompt, char texto[], int tamanho) {
+void leia_string(char* prompt, char* buffer, int tamanho) {
     printf("%s", prompt);
 
-    fgets(texto, tamanho, stdin);
-    texto[strcspn(texto, "\n")] = '\0';
+    if (fgets(buffer, tamanho, stdin) != null) {
+        buffer[strcspn(buffer, "\n")] = '\0';
+    }
 }
 
 int main() {
