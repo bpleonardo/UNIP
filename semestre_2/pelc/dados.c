@@ -27,11 +27,16 @@ int main() {
 
     char celular[16];
     leia_string("Insira seu telefone no formato internacional: ", celular, 15);
-
+    
+    char nome_completo[66];
+    strcat(nome_completo, nome);
+    strcat(nome_completo, " ");
+    strcat(nome_completo, sobrenome);
+    
     printf(
         "\nNome: %s\nData de nascimento: %s\nEmail: %s\nCelular: "
         "%s\n",
-        strcat(strcat(nome, " "), sobrenome), data_nascimento, email, celular);
+        nome_completo, data_nascimento, email, celular);
 
     return 0;
 }
