@@ -29,9 +29,9 @@ int main() {
     leia_string("Insira seu telefone no formato internacional: ", celular, 15);
 
     printf(
-        "\nNome: %s\nSobrenome: %s\nData de nascimento: %s\nEmail: %s\nCelular: "
+        "\nNome: %s\nData de nascimento: %s\nEmail: %s\nCelular: "
         "%s\n",
-        nome, sobrenome, data_nascimento, email, celular);
+        strcat(strcat(nome, " "), sobrenome), data_nascimento, email, celular);
 
     return 0;
 }
