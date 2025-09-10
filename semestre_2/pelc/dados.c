@@ -23,7 +23,7 @@ int main() {
     // Fonte: https://www.rfc-editor.org/rfc/rfc3696 (3. Restrictions on email
     // addresses)
     char email[322];
-    leia_string("Insira seu email: ", email, 321);
+    leia_string("Insira seu email: ", email, 322);
 
     char celular[16];
     leia_string("Insira seu telefone no formato internacional: ", celular, 15);
