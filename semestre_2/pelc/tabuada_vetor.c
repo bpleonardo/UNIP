@@ -10,8 +10,7 @@ float leia_int(char* prompt) {
     return resultado;
 }
 
-int main()
-{
+int main() {
     int resultado[10];
     
     int n = leia_int("Digite um número: ");
@@ -24,6 +23,5 @@ int main()
         printf("%d * %d = %d\n", n, i + 1, resultado[i]);
     }
     
-
     return 0;
 }
