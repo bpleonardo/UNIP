@@ -2,52 +2,68 @@
 #include <stdlib.h>
 #include <string.h>
 
-int getFileSize(FILE* file) {
-  int size;
+int lerString(char* prompt, char* buffer, int tamanho);
+int obterTamanho(FILE* file);
+char* lerArquivo(char* path);
+
+int main() {
+  char caminho[255];
+  if (lerString("Insira o caminho do arquivo: ", caminho, 255) == 0) {
+    perror("fgets");
+    return 1;
+  }
+
+  char* content = lerArquivo(caminho);
+
+  if (content == NULL) {
+    perror("Erro ao ler arquivo");
+    return 1;
+  }
+
+  printf("%s\n", content);
+
+  free(content);
+  content = NULL;
+
+  return 0;
+}
+
+int lerString(char* prompt, char* buffer, int tamanho) {
+  printf("%s", prompt);
+
+  if (fgets(buffer, tamanho, stdin) == NULL) { return 0; }
+
+  buffer[strcspn(buffer, "\n")] = '\0';
+
+  return 1;
+}
+
+int obterTamanho(FILE* file) {
+  int before = ftell(file);
 
   fseek(file, 0, SEEK_END);
-  size = ftell(file);
-  fseek(file, 0, SEEK_SET);
+
+  int size = ftell(file);
+
+  fseek(file, before, SEEK_SET);
 
   return size;
 }
 
-int readFileUntilEof(FILE* file) {}
+char* lerArquivo(char* path) {
+  FILE* fp = fopen(path, "r");
 
-int main() {
-  FILE* fp = fopen("parse.txt", "r");
+  if (fp == NULL) return NULL;
 
-  if (fp == NULL) {
-    perror("Error parsing file");
-    return 1;
-  }
+  int size = obterTamanho(fp);
 
-  int size = getFileSize(fp);
+  char* buffer = malloc(size);
 
-  char* buffer = (char*) malloc(size);
-
-  for (int i = 0; i < size; i++) {
-    char c = fgetc(fp);
-
-    if (c == EOF) {
-      perror("O arquivo atingiu EOF...");
-      fclose(fp);
-      free(buffer);
-      return 1;
-    };
-
-    buffer[i] = c;
-  }
+  fread(buffer, sizeof(char), size, fp);
 
   fclose(fp);
-  fp = NULL;
 
-  buffer[size] = '\0';
+  buffer[--size] = '\0';
 
-  printf("%s\n", buffer);
-
-  free(buffer);
-  buffer = NULL;
-
-  return 0;
+  return buffer;
 }
