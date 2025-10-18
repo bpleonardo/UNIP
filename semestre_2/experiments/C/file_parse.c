@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int lerString(char* prompt, char* buffer, int tamanho);
+int lerString(const char* prompt, char* buffer, int tamanho);
 int obterTamanho(FILE* file);
 char* lerArquivo(char* path);
 
@@ -25,10 +25,12 @@ int main() {
   free(content);
   content = NULL;
 
+  while (1) {}
+
   return 0;
 }
 
-int lerString(char* prompt, char* buffer, int tamanho) {
+int lerString(const char* prompt, char* buffer, int tamanho) {
   printf("%s", prompt);
 
   if (fgets(buffer, tamanho, stdin) == NULL) { return 0; }
@@ -57,13 +59,12 @@ char* lerArquivo(char* path) {
 
   int size = obterTamanho(fp);
 
-  char* buffer = malloc(size);
+  char* buffer = malloc((size + 1) * sizeof(char)); // Deixar espaço para o \0
+  buffer[size] = '\0';
 
   fread(buffer, sizeof(char), size, fp);
 
   fclose(fp);
-
-  buffer[--size] = '\0';
 
   return buffer;
 }
