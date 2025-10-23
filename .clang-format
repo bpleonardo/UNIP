@@ -107,6 +107,11 @@ FixNamespaceComments: true
 SortIncludes:
   Enabled: true
 SortUsingDeclarations: LexicographicNumeric
+IncludeCategories:
+  - Regex: "^<.*>$"
+    Priority: 1
+  - Regex: '^"headers/.*"'
+    Priority: 2
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: false
 SpaceBeforeAssignmentOperators: true
