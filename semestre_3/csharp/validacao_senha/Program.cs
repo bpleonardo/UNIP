@@ -1,17 +1,24 @@
-﻿namespace validacao_senha {
-    internal class Program {
-        static void Main() {
+﻿namespace validacao_senha
+{
+    internal class Program
+    {
+        static void Main()
+        {
             string senha_correta = "2026";
 
             Console.WriteLine("-=-=-= Validação de senha =-=-=-");
-            while (true) {
+            while (true)
+            {
                 Console.Write("Digite senha: ");
                 string senha = Console.ReadLine() ?? "";
 
-                if (senha == senha_correta) {
+                if (senha == senha_correta)
+                {
                     Console.WriteLine("Acesso Permitido");
                     break;
-                } else {
+                }
+                else
+                {
                     Console.WriteLine("Senha Invalida");
                 }
             }
