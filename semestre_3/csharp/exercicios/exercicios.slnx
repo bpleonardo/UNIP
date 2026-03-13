@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="avaliacao_aluno/avaliacao_aluno.csproj" />
+  <Project Path="contas_bancarias/contas_bancarias.csproj" />
+</Solution>
