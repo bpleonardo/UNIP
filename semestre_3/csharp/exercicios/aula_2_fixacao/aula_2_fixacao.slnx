@@ -1,0 +1,4 @@
+<Solution>
+    <Project Path="retangulo/retangulo.csproj" />
+    <Project Path="salario/salario.csproj" />
+</Solution>
